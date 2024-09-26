@@ -1,0 +1,344 @@
+{
+  "level": "info",
+  "timestamp": "Sep-09_24 21:25:10",
+  "message": "User registered successfully",
+  "data": {
+    "request": {
+      "headers": {
+        "content-type": "application/json",
+        "user-agent": "PostmanRuntime/7.37.3",
+        "accept": "*/*",
+        "cache-control": "no-cache",
+        "postman-token": "45aefb72-b5ed-4362-ae1f-ec6c5f17064c",
+        "host": "localhost:5000",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive",
+        "content-length": "110"
+      },
+      "host": "localhost:5000",
+      "baseUrl": "/api/auth",
+      "url": "/signup",
+      "method": "POST",
+      "body": {
+        "name": "Super User",
+        "email": "suser@gmail.com",
+        "password": "*****",
+        "role": "admin"
+      },
+      "params": {},
+      "query": {},
+      "clientIp": "::1"
+    },
+    "response": {
+      "headers": {
+        "x-powered-by": "Express",
+        "vary": "Origin"
+      },
+      "statusCode": 201,
+      "body": {
+        "message": "User registered successfully"
+      }
+    }
+  }
+}
+{
+  "level": "info",
+  "timestamp": "Sep-09_24 21:40:03",
+  "message": "User signin successfully",
+  "data": {
+    "request": {
+      "headers": {
+        "content-type": "application/json",
+        "user-agent": "PostmanRuntime/7.37.3",
+        "accept": "*/*",
+        "cache-control": "no-cache",
+        "postman-token": "10b686dd-1f61-4f6a-9a3d-51b38a4c3322",
+        "host": "localhost:5000",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive",
+        "content-length": "62"
+      },
+      "host": "localhost:5000",
+      "baseUrl": "/api/auth",
+      "url": "/signin",
+      "method": "POST",
+      "body": {
+        "email": "suser@gmail.com",
+        "password": "*****"
+      },
+      "params": {},
+      "query": {},
+      "clientIp": "::1"
+    },
+    "response": {
+      "headers": {
+        "x-powered-by": "Express",
+        "vary": "Origin"
+      },
+      "statusCode": 201,
+      "body": {
+        "message": "User signin successfully",
+        "user": "50703292-9709-4dde-a1d1-4d0979328c82",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUwNzAzMjkyLTk3MDktNGRkZS1hMWQxLTRkMDk3OTMyOGM4MiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyNTg5NzMwMywiZXhwIjoxNzI1OTgzNzAzfQ.xgYngXZcIoUNzXRp6xmyCi4HnWTefv_OZKgiaqaswxg"
+      }
+    }
+  }
+}
+{
+  "level": "info",
+  "timestamp": "Sep-09_24 21:40:03",
+  "message": "Success",
+  "data": {
+    "request": {
+      "headers": {
+        "content-type": "application/json",
+        "user-agent": "PostmanRuntime/7.37.3",
+        "accept": "*/*",
+        "cache-control": "no-cache",
+        "postman-token": "10b686dd-1f61-4f6a-9a3d-51b38a4c3322",
+        "host": "localhost:5000",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive",
+        "content-length": "62"
+      },
+      "host": "localhost:5000",
+      "baseUrl": "/api/auth",
+      "url": "/signin",
+      "method": "POST",
+      "body": {
+        "email": "suser@gmail.com",
+        "password": "*****"
+      },
+      "params": {},
+      "query": {},
+      "clientIp": "::1"
+    },
+    "response": {
+      "headers": {
+        "x-powered-by": "Express",
+        "vary": "Origin",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "302",
+        "etag": "W/\"12e-LudLXo70oDvR8VpenFC3uZeaDNg\""
+      },
+      "statusCode": 201,
+      "body": {
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUwNzAzMjkyLTk3MDktNGRkZS1hMWQxLTRkMDk3OTMyOGM4MiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyNTg5NzMwMywiZXhwIjoxNzI1OTgzNzAzfQ.xgYngXZcIoUNzXRp6xmyCi4HnWTefv_OZKgiaqaswxg",
+        "user": "50703292-9709-4dde-a1d1-4d0979328c82"
+      }
+    }
+  }
+}
+{
+  "level": "info",
+  "timestamp": "Sep-09_24 21:40:11",
+  "message": "Users found",
+  "data": {
+    "request": {
+      "headers": {
+        "user-agent": "PostmanRuntime/7.37.3",
+        "accept": "*/*",
+        "cache-control": "no-cache",
+        "postman-token": "7c361ce7-8204-4b2b-994c-f6404da6d655",
+        "host": "localhost:5000",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive"
+      },
+      "host": "localhost:5000",
+      "baseUrl": "/api/auth",
+      "url": "/users",
+      "method": "GET",
+      "body": {},
+      "params": {},
+      "query": {},
+      "clientIp": "::1"
+    },
+    "response": {
+      "headers": {
+        "x-powered-by": "Express",
+        "vary": "Origin"
+      },
+      "statusCode": 200,
+      "body": {
+        "message": "Users found",
+        "users": [
+          {
+            "id": "50703292-9709-4dde-a1d1-4d0979328c82",
+            "name": "Super User",
+            "email": "suser@gmail.com",
+            "password": "*****",
+            "role": "admin",
+            "createdAt": {},
+            "updatedAt": {}
+          }
+        ]
+      }
+    }
+  }
+}
+{
+  "level": "error",
+  "timestamp": "Sep-09_24 21:40:57",
+  "message": "Error creating product",
+  "data": {
+    "request": {
+      "headers": {
+        "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUwNzAzMjkyLTk3MDktNGRkZS1hMWQxLTRkMDk3OTMyOGM4MiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyNTg5NzMwMywiZXhwIjoxNzI1OTgzNzAzfQ.xgYngXZcIoUNzXRp6xmyCi4HnWTefv_OZKgiaqaswxg",
+        "user-agent": "PostmanRuntime/7.37.3",
+        "accept": "*/*",
+        "cache-control": "no-cache",
+        "postman-token": "a353417e-2b98-47e0-9d45-fd01e26e1dae",
+        "host": "localhost:5000",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive",
+        "content-type": "multipart/form-data; boundary=--------------------------447825785992734843770909",
+        "content-length": "848"
+      },
+      "host": "localhost:5000",
+      "baseUrl": "/api/products",
+      "url": "/",
+      "method": "POST",
+      "body": "[Entity Instance]",
+      "params": {},
+      "query": {},
+      "clientIp": "::1"
+    },
+    "response": {
+      "headers": {
+        "x-powered-by": "Express",
+        "vary": "Origin"
+      },
+      "statusCode": 500,
+      "body": {
+        "message": "Error creating product"
+      }
+    }
+  }
+}
+{
+  "level": "error",
+  "timestamp": "Sep-09_24 21:42:06",
+  "message": "Error creating product",
+  "data": {
+    "request": {
+      "headers": {
+        "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUwNzAzMjkyLTk3MDktNGRkZS1hMWQxLTRkMDk3OTMyOGM4MiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyNTg5NzMwMywiZXhwIjoxNzI1OTgzNzAzfQ.xgYngXZcIoUNzXRp6xmyCi4HnWTefv_OZKgiaqaswxg",
+        "user-agent": "PostmanRuntime/7.37.3",
+        "accept": "*/*",
+        "cache-control": "no-cache",
+        "postman-token": "4b6d8f4c-7dc9-4bb7-92cf-d286a4759f78",
+        "host": "localhost:5000",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive",
+        "content-type": "multipart/form-data; boundary=--------------------------765552148536511660409337",
+        "content-length": "848"
+      },
+      "host": "localhost:5000",
+      "baseUrl": "/api/products",
+      "url": "/",
+      "method": "POST",
+      "body": "[Entity Instance]",
+      "params": {},
+      "query": {},
+      "clientIp": "::1"
+    },
+    "response": {
+      "headers": {
+        "x-powered-by": "Express",
+        "vary": "Origin"
+      },
+      "statusCode": 500,
+      "body": {
+        "message": "Error creating product"
+      }
+    }
+  }
+}
+{
+  "level": "error",
+  "timestamp": "Sep-09_24 21:45:05",
+  "message": "Error creating product",
+  "data": {
+    "request": {
+      "headers": {
+        "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUwNzAzMjkyLTk3MDktNGRkZS1hMWQxLTRkMDk3OTMyOGM4MiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyNTg5NzMwMywiZXhwIjoxNzI1OTgzNzAzfQ.xgYngXZcIoUNzXRp6xmyCi4HnWTefv_OZKgiaqaswxg",
+        "user-agent": "PostmanRuntime/7.37.3",
+        "accept": "*/*",
+        "cache-control": "no-cache",
+        "postman-token": "f98c9916-d7aa-4da6-b20f-9cf79fbb0a2d",
+        "host": "localhost:5000",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive",
+        "content-type": "multipart/form-data; boundary=--------------------------971794663543044508261473",
+        "content-length": "848"
+      },
+      "host": "localhost:5000",
+      "baseUrl": "/api/products",
+      "url": "/",
+      "method": "POST",
+      "body": "[Entity Instance]",
+      "params": {},
+      "query": {},
+      "clientIp": "::1"
+    },
+    "response": {
+      "headers": {
+        "x-powered-by": "Express",
+        "vary": "Origin"
+      },
+      "statusCode": 500,
+      "body": {
+        "message": "Error creating product"
+      }
+    }
+  }
+}
+{
+  "level": "info",
+  "timestamp": "Sep-09_24 21:46:04",
+  "message": "Product created successfully",
+  "data": {
+    "request": {
+      "headers": {
+        "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUwNzAzMjkyLTk3MDktNGRkZS1hMWQxLTRkMDk3OTMyOGM4MiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyNTg5NzMwMywiZXhwIjoxNzI1OTgzNzAzfQ.xgYngXZcIoUNzXRp6xmyCi4HnWTefv_OZKgiaqaswxg",
+        "user-agent": "PostmanRuntime/7.37.3",
+        "accept": "*/*",
+        "cache-control": "no-cache",
+        "postman-token": "3afac3f1-24e4-4145-a422-ecdd5fa29031",
+        "host": "localhost:5000",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive",
+        "content-type": "multipart/form-data; boundary=--------------------------861934426834953751033044",
+        "content-length": "128499"
+      },
+      "host": "localhost:5000",
+      "baseUrl": "/api/products",
+      "url": "/",
+      "method": "POST",
+      "body": "[Entity Instance]",
+      "params": {},
+      "query": {},
+      "clientIp": "::1"
+    },
+    "response": {
+      "headers": {
+        "x-powered-by": "Express",
+        "vary": "Origin"
+      },
+      "statusCode": 201,
+      "body": {
+        "message": "Product created successfully",
+        "product": {
+          "name": "Apple iPhone 13",
+          "price": "140000",
+          "description": "The Apple iPhone 13 in Pink with 128GB storage is available at Oliz Store in Nepal at an attractive price. It features a stunning 6.1-inch Super Retina XDR display and introduces Cinematic mode for enhanced video viewing with shallow depth of field effects. Its advanced dual-camera system includes 12MP Wide and Ultra Wide lenses with features like Photographic Styles, Smart HDR 4, and Night mode, along with 4K Dolby Vision HDR recording capabilities.",
+          "imagePublicId": "WebxUploads/il8vysft3xmu5a9s1lkw",
+          "imageUrl": "https://res.cloudinary.com/dsxtkrokp/image/upload/v1725897666/WebxUploads/il8vysft3xmu5a9s1lkw.png",
+          "id": "d0fbefd6-eca5-4f72-b961-6a5d71a1231a",
+          "createdAt": {},
+          "updatedAt": {}
+        }
+      }
+    }
+  }
+}

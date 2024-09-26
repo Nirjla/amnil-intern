@@ -1,0 +1,753 @@
+{
+  "level": "info",
+  "timestamp": "Sep-06_24 11:54:59",
+  "message": "User signin successfully",
+  "data": {
+    "request": {
+      "headers": {
+        "content-type": "application/json",
+        "user-agent": "PostmanRuntime/7.37.3",
+        "accept": "*/*",
+        "cache-control": "no-cache",
+        "postman-token": "42b5b05e-4ba5-4b8f-9e04-402b84df020d",
+        "host": "localhost:5000",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive",
+        "content-length": "62"
+      },
+      "host": "localhost:5000",
+      "baseUrl": "/api/auth",
+      "url": "/signin",
+      "method": "POST",
+      "body": {
+        "email": "suser@gmail.com",
+        "password": "password"
+      },
+      "params": {},
+      "query": {},
+      "clientIp": "::1"
+    },
+    "response": {
+      "headers": {
+        "x-powered-by": "Express",
+        "vary": "Origin"
+      },
+      "statusCode": 201,
+      "body": {
+        "message": "User signin successfully",
+        "user": "f4c637fc-76e1-4ff1-8e66-0ee99c3f3532",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY0YzYzN2ZjLTc2ZTEtNGZmMS04ZTY2LTBlZTk5YzNmMzUzMiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyNTYwMjk5OSwiZXhwIjoxNzI1Njg5Mzk5fQ.-BbrMr6lpiCXHHzo-gYAXh3bFrKTgpPMtqL3uW_nIpg"
+      }
+    }
+  }
+}
+{
+  "level": "info",
+  "timestamp": "Sep-06_24 11:56:42",
+  "message": "User signin successfully",
+  "data": {
+    "request": {
+      "headers": {
+        "content-type": "application/json",
+        "user-agent": "PostmanRuntime/7.37.3",
+        "accept": "*/*",
+        "cache-control": "no-cache",
+        "postman-token": "0bf58a79-5155-48d9-ad07-4cfb63811ce9",
+        "host": "localhost:5000",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive",
+        "content-length": "62"
+      },
+      "host": "localhost:5000",
+      "baseUrl": "/api/auth",
+      "url": "/signin",
+      "method": "POST",
+      "body": {
+        "email": "suser@gmail.com",
+        "password": "*****"
+      },
+      "params": {},
+      "query": {},
+      "clientIp": "::1"
+    },
+    "response": {
+      "headers": {
+        "x-powered-by": "Express",
+        "vary": "Origin"
+      },
+      "statusCode": 201,
+      "body": {
+        "message": "User signin successfully",
+        "user": "f4c637fc-76e1-4ff1-8e66-0ee99c3f3532",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY0YzYzN2ZjLTc2ZTEtNGZmMS04ZTY2LTBlZTk5YzNmMzUzMiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyNTYwMzEwMiwiZXhwIjoxNzI1Njg5NTAyfQ.DvuBFaAmhpPr8VQg8R-zh5Y6a5_3QNLhVNQ-Mil5SV0"
+      }
+    }
+  }
+}
+{
+  "level": "info",
+  "timestamp": "Sep-06_24 12:32:04",
+  "message": "User signin successfully",
+  "data": {
+    "request": {
+      "headers": {
+        "content-type": "application/json",
+        "user-agent": "PostmanRuntime/7.37.3",
+        "accept": "*/*",
+        "cache-control": "no-cache",
+        "postman-token": "18e6b9cd-26ad-454d-a4b1-486ca49d5e93",
+        "host": "localhost:5000",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive",
+        "content-length": "62"
+      },
+      "host": "localhost:5000",
+      "baseUrl": "/api/auth",
+      "url": "/signin",
+      "method": "POST",
+      "body": {
+        "email": "suser@gmail.com",
+        "password": "*****"
+      },
+      "params": {},
+      "query": {},
+      "clientIp": "::1"
+    },
+    "response": {
+      "headers": {
+        "x-powered-by": "Express",
+        "vary": "Origin"
+      },
+      "statusCode": 201,
+      "body": {
+        "message": "User signin successfully",
+        "user": "f4c637fc-76e1-4ff1-8e66-0ee99c3f3532",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY0YzYzN2ZjLTc2ZTEtNGZmMS04ZTY2LTBlZTk5YzNmMzUzMiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyNTYwNTIyNCwiZXhwIjoxNzI1NjkxNjI0fQ.5yEhSZCov7RRBGD2jzuvpy43WxvS_bGbIhD7dp09yi4"
+      }
+    }
+  }
+}
+{
+  "level": "info",
+  "timestamp": "Sep-06_24 13:22:44",
+  "message": "User signin successfully",
+  "data": {
+    "request": {
+      "headers": {
+        "content-type": "application/json",
+        "user-agent": "PostmanRuntime/7.37.3",
+        "accept": "*/*",
+        "cache-control": "no-cache",
+        "postman-token": "453c9bea-3459-43f0-8728-c71ad4d00ca6",
+        "host": "localhost:5000",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive",
+        "content-length": "62"
+      },
+      "host": "localhost:5000",
+      "baseUrl": "/api/auth",
+      "url": "/signin",
+      "method": "POST",
+      "body": {
+        "email": "suser@gmail.com",
+        "password": "*****"
+      },
+      "params": {},
+      "query": {},
+      "clientIp": "::1"
+    },
+    "response": {
+      "headers": {
+        "x-powered-by": "Express",
+        "vary": "Origin"
+      },
+      "statusCode": 201,
+      "body": {
+        "message": "User signin successfully",
+        "user": "f4c637fc-76e1-4ff1-8e66-0ee99c3f3532",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY0YzYzN2ZjLTc2ZTEtNGZmMS04ZTY2LTBlZTk5YzNmMzUzMiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyNTYwODI2NCwiZXhwIjoxNzI1Njk0NjY0fQ.JaEOh69JTaxG4vbBaYRFs0rf-zqIBzk-PJPRl6utKYc"
+      }
+    }
+  }
+}
+{
+  "level": "info",
+  "timestamp": "Sep-06_24 13:23:50",
+  "message": "User signin successfully",
+  "data": {
+    "request": {
+      "headers": {
+        "content-type": "application/json",
+        "user-agent": "PostmanRuntime/7.37.3",
+        "accept": "*/*",
+        "cache-control": "no-cache",
+        "postman-token": "3fc15ed0-598e-42df-8532-7d884a8cd08d",
+        "host": "localhost:5000",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive",
+        "content-length": "62"
+      },
+      "host": "localhost:5000",
+      "baseUrl": "/api/auth",
+      "url": "/signin",
+      "method": "POST",
+      "body": {
+        "email": "suser@gmail.com",
+        "password": "*****"
+      },
+      "params": {},
+      "query": {},
+      "clientIp": "::1"
+    },
+    "response": {
+      "headers": {
+        "x-powered-by": "Express",
+        "vary": "Origin"
+      },
+      "statusCode": 201,
+      "body": {
+        "message": "User signin successfully",
+        "user": "f4c637fc-76e1-4ff1-8e66-0ee99c3f3532",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY0YzYzN2ZjLTc2ZTEtNGZmMS04ZTY2LTBlZTk5YzNmMzUzMiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyNTYwODMzMCwiZXhwIjoxNzI1Njk0NzMwfQ.hXqUdo38vmP3d_MsoTgyByINUn9DfTXJGCrbGCYsJ1c"
+      }
+    }
+  }
+}
+{
+  "level": "info",
+  "timestamp": "Sep-06_24 13:24:34",
+  "message": "User signin successfully",
+  "data": {
+    "request": {
+      "headers": {
+        "content-type": "application/json",
+        "user-agent": "PostmanRuntime/7.37.3",
+        "accept": "*/*",
+        "cache-control": "no-cache",
+        "postman-token": "94caf4e2-f291-473f-bae9-9e4d2a1cd0c6",
+        "host": "localhost:5000",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive",
+        "content-length": "62"
+      },
+      "host": "localhost:5000",
+      "baseUrl": "/api/auth",
+      "url": "/signin",
+      "method": "POST",
+      "body": {
+        "email": "suser@gmail.com",
+        "password": "*****"
+      },
+      "params": {},
+      "query": {},
+      "clientIp": "::1"
+    },
+    "response": {
+      "headers": {
+        "x-powered-by": "Express",
+        "vary": "Origin"
+      },
+      "statusCode": 201,
+      "body": {
+        "message": "User signin successfully",
+        "user": "f4c637fc-76e1-4ff1-8e66-0ee99c3f3532",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY0YzYzN2ZjLTc2ZTEtNGZmMS04ZTY2LTBlZTk5YzNmMzUzMiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyNTYwODM3NCwiZXhwIjoxNzI1Njk0Nzc0fQ.0rhpqVMhswHvQXYmjmQfUO4eCI-PCU_ovX4mJNwrOCU"
+      }
+    }
+  }
+}
+{
+  "level": "info",
+  "timestamp": "Sep-06_24 13:26:47",
+  "message": "User signin successfully",
+  "data": {
+    "request": {
+      "headers": {
+        "content-type": "application/json",
+        "user-agent": "PostmanRuntime/7.37.3",
+        "accept": "*/*",
+        "cache-control": "no-cache",
+        "postman-token": "873eec00-20eb-4c74-bed7-a00f0de9334f",
+        "host": "localhost:5000",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive",
+        "content-length": "62"
+      },
+      "host": "localhost:5000",
+      "baseUrl": "/api/auth",
+      "url": "/signin",
+      "method": "POST",
+      "body": {
+        "email": "suser@gmail.com",
+        "password": "*****"
+      },
+      "params": {},
+      "query": {},
+      "clientIp": "::1"
+    },
+    "response": {
+      "headers": {
+        "x-powered-by": "Express",
+        "vary": "Origin"
+      },
+      "statusCode": 201,
+      "body": {
+        "message": "User signin successfully",
+        "user": "f4c637fc-76e1-4ff1-8e66-0ee99c3f3532",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY0YzYzN2ZjLTc2ZTEtNGZmMS04ZTY2LTBlZTk5YzNmMzUzMiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyNTYwODUwNywiZXhwIjoxNzI1Njk0OTA3fQ.CwThE3DDPvEURM98mdR_PctML0KOgu2Dm5PtUS7qVzU"
+      }
+    }
+  }
+}
+{
+  "level": "info",
+  "timestamp": "Sep-06_24 13:28:33",
+  "message": "User signin successfully",
+  "data": {
+    "request": {
+      "headers": {
+        "content-type": "application/json",
+        "user-agent": "PostmanRuntime/7.37.3",
+        "accept": "*/*",
+        "cache-control": "no-cache",
+        "postman-token": "339aefab-514d-45af-aefc-0fb3a1b7045a",
+        "host": "localhost:5000",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive",
+        "content-length": "62"
+      },
+      "host": "localhost:5000",
+      "baseUrl": "/api/auth",
+      "url": "/signin",
+      "method": "POST",
+      "body": {
+        "email": "suser@gmail.com",
+        "password": "*****"
+      },
+      "params": {},
+      "query": {},
+      "clientIp": "::1"
+    },
+    "response": {
+      "headers": {
+        "x-powered-by": "Express",
+        "vary": "Origin"
+      },
+      "statusCode": 201,
+      "body": {
+        "message": "User signin successfully",
+        "user": "f4c637fc-76e1-4ff1-8e66-0ee99c3f3532",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY0YzYzN2ZjLTc2ZTEtNGZmMS04ZTY2LTBlZTk5YzNmMzUzMiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyNTYwODYxMywiZXhwIjoxNzI1Njk1MDEzfQ.MXAXFjiVXozwOHMtyYWdo6BB6LbSb33YNswdNIiEdGc"
+      }
+    }
+  }
+}
+{
+  "level": "info",
+  "timestamp": "Sep-06_24 13:34:48",
+  "message": "User signin successfully",
+  "data": {
+    "request": {
+      "headers": {
+        "content-type": "application/json",
+        "user-agent": "PostmanRuntime/7.37.3",
+        "accept": "*/*",
+        "cache-control": "no-cache",
+        "postman-token": "a75fda4e-f94f-47fd-9954-e555375500bd",
+        "host": "localhost:5000",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive",
+        "content-length": "62"
+      },
+      "host": "localhost:5000",
+      "baseUrl": "/api/auth",
+      "url": "/signin",
+      "method": "POST",
+      "body": {
+        "email": "suser@gmail.com",
+        "password": "*****"
+      },
+      "params": {},
+      "query": {},
+      "clientIp": "::1"
+    },
+    "response": {
+      "headers": {
+        "x-powered-by": "Express",
+        "vary": "Origin"
+      },
+      "statusCode": 201,
+      "body": {
+        "message": "User signin successfully",
+        "user": "f4c637fc-76e1-4ff1-8e66-0ee99c3f3532",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY0YzYzN2ZjLTc2ZTEtNGZmMS04ZTY2LTBlZTk5YzNmMzUzMiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyNTYwODk4OCwiZXhwIjoxNzI1Njk1Mzg4fQ.5O0cvh0wKIdhxR2Zpk9QdcTJayfayd4J9K7b3Szbqfk"
+      }
+    }
+  }
+}
+{
+  "level": "info",
+  "timestamp": "Sep-06_24 13:53:53",
+  "message": "User signin successfully",
+  "data": {
+    "request": {
+      "headers": {
+        "content-type": "application/json",
+        "user-agent": "PostmanRuntime/7.37.3",
+        "accept": "*/*",
+        "cache-control": "no-cache",
+        "postman-token": "d71961b4-87ff-46f5-9efb-be1015438dbf",
+        "host": "localhost:5000",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive",
+        "content-length": "62"
+      },
+      "host": "localhost:5000",
+      "baseUrl": "/api/auth",
+      "url": "/signin",
+      "method": "POST",
+      "body": {
+        "email": "nuser@gmail.com",
+        "password": "*****"
+      },
+      "params": {},
+      "query": {},
+      "clientIp": "::1"
+    },
+    "response": {
+      "headers": {
+        "x-powered-by": "Express",
+        "vary": "Origin"
+      },
+      "statusCode": 201,
+      "body": {
+        "message": "User signin successfully",
+        "user": "ac431bf6-9335-4467-bbfa-358f430da79d",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFjNDMxYmY2LTkzMzUtNDQ2Ny1iYmZhLTM1OGY0MzBkYTc5ZCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzI1NjEwMTMzLCJleHAiOjE3MjU2OTY1MzN9.8h0dOdJQJsH_kmK8NRulteG6R77HRKb9x6qGrloTKQ0"
+      }
+    }
+  }
+}
+{
+  "level": "info",
+  "timestamp": "Sep-06_24 13:54:08",
+  "message": "Success",
+  "data": {
+    "request": {
+      "headers": {
+        "user-agent": "PostmanRuntime/7.37.3",
+        "accept": "*/*",
+        "cache-control": "no-cache",
+        "postman-token": "1b0af6c6-e1c3-4171-ade7-e1debd980eba",
+        "host": "localhost:5000",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive"
+      },
+      "host": "localhost:5000",
+      "baseUrl": "/api/products",
+      "url": "/",
+      "method": "GET",
+      "body": {},
+      "params": {},
+      "query": {},
+      "clientIp": "::1"
+    },
+    "response": {
+      "headers": {
+        "x-powered-by": "Express",
+        "vary": "Origin"
+      },
+      "statusCode": 200,
+      "body": {
+        "product": [
+          {
+            "id": "4e71ae3c-fcde-4a31-be56-376af083285b",
+            "name": "New Prod",
+            "price": "20000",
+            "description": "New Testtest",
+            "imagePublicId": "WebxUploads/wgnqw9jp8rfu7plicjpr",
+            "imageUrl": "https://res.cloudinary.com/dsxtkrokp/image/upload/v1725161168/WebxUploads/wgnqw9jp8rfu7plicjpr.png",
+            "createdAt": {},
+            "updatedAt": {}
+          },
+          {
+            "id": "2309e595-6fa1-4d99-ad0f-f6c212a38869",
+            "name": " Apple iPhone 14",
+            "price": "100000",
+            "description": "The Apple iPhone 14 128GB, available at the best price at Oliz Store in Nepal, combines sleek design with cutting-edge features for an elevated smartphone experience. Its 6.1-inch OLED display offers vibrant colors and sharp contrast, perfect for immersive multimedia and app usage. With 128GB of storage, users can store ample photos, videos, and apps. Powered by the A15 Bionic Chip, this Hexa-Core processor ensures blazing-fast performance and seamless multitasking.",
+            "imagePublicId": "WebxUploads/yjxbas2lfsqxjsiw3ato",
+            "imageUrl": "https://res.cloudinary.com/dsxtkrokp/image/upload/v1725290587/WebxUploads/yjxbas2lfsqxjsiw3ato.png",
+            "createdAt": {},
+            "updatedAt": {}
+          },
+          {
+            "id": "ceef1919-7cd1-4c7b-bce9-3f971e01f8f7",
+            "name": "Apple iPhone 12",
+            "price": "1200000",
+            "description": "The Apple iPhone 12 in Purple, available at Oliz Store in Nepal at a competitive price, features a generous 128GB storage capacity and a stunning 6.1-inch Super Retina XDR display. It runs on the powerful A14 Bionic chip, ensuring smooth performance. With 5G mmWave and sub-6GHz capabilities, users enjoy fast connectivity.",
+            "imagePublicId": "WebxUploads/ygtgnf3dkpefdvgpw1rl",
+            "imageUrl": "https://res.cloudinary.com/dsxtkrokp/image/upload/v1725290649/WebxUploads/ygtgnf3dkpefdvgpw1rl.png",
+            "createdAt": {},
+            "updatedAt": {}
+          },
+          {
+            "id": "d84e2368-3ecf-4dc7-a13a-68637d10f9a5",
+            "name": "Apple iPhone 13",
+            "price": "140000",
+            "description": "The Apple iPhone 13 in Pink with 128GB storage is available at Oliz Store in Nepal at an attractive price. It features a stunning 6.1-inch Super Retina XDR display and introduces Cinematic mode for enhanced video viewing with shallow depth of field effects. Its advanced dual-camera system includes 12MP Wide and Ultra Wide lenses with features like Photographic Styles, Smart HDR 4, and Night mode, along with 4K Dolby Vision HDR recording capabilities.",
+            "imagePublicId": "WebxUploads/bdczitke7ymrdrwkcv9b",
+            "imageUrl": "https://res.cloudinary.com/dsxtkrokp/image/upload/v1725290723/WebxUploads/bdczitke7ymrdrwkcv9b.png",
+            "createdAt": {},
+            "updatedAt": {}
+          }
+        ]
+      }
+    }
+  }
+}
+{
+  "level": "error",
+  "timestamp": "Sep-06_24 14:00:13",
+  "message": "Not Found",
+  "data": {
+    "request": {
+      "headers": {
+        "user-agent": "PostmanRuntime/7.37.3",
+        "accept": "*/*",
+        "cache-control": "no-cache",
+        "postman-token": "73b28cca-646c-4e93-8a5d-b342fa6fa4b8",
+        "host": "localhost:5000",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive"
+      },
+      "host": "localhost:5000",
+      "baseUrl": "",
+      "url": "/api/users",
+      "method": "GET",
+      "body": {},
+      "params": {
+        "0": "/api/users"
+      },
+      "query": {},
+      "clientIp": "::1"
+    },
+    "response": {
+      "headers": {
+        "x-powered-by": "Express",
+        "vary": "Origin"
+      },
+      "statusCode": 404,
+      "body": {
+        "message": "Not Found"
+      }
+    }
+  }
+}
+{
+  "level": "info",
+  "timestamp": "Sep-06_24 14:00:37",
+  "message": "Users found",
+  "data": {
+    "request": {
+      "headers": {
+        "user-agent": "PostmanRuntime/7.37.3",
+        "accept": "*/*",
+        "cache-control": "no-cache",
+        "postman-token": "f6e20d1e-b1cc-42a8-806a-71eca898e2aa",
+        "host": "localhost:5000",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive"
+      },
+      "host": "localhost:5000",
+      "baseUrl": "/api/auth",
+      "url": "/users",
+      "method": "GET",
+      "body": {},
+      "params": {},
+      "query": {},
+      "clientIp": "::1"
+    },
+    "response": {
+      "headers": {
+        "x-powered-by": "Express",
+        "vary": "Origin"
+      },
+      "statusCode": 200,
+      "body": {
+        "message": "Users found",
+        "users": {}
+      }
+    }
+  }
+}
+{
+  "level": "info",
+  "timestamp": "Sep-06_24 14:01:22",
+  "message": "Users found",
+  "data": {
+    "request": {
+      "headers": {
+        "user-agent": "PostmanRuntime/7.37.3",
+        "accept": "*/*",
+        "cache-control": "no-cache",
+        "postman-token": "91caf247-f387-436d-9a9f-40652aee62c6",
+        "host": "localhost:5000",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive"
+      },
+      "host": "localhost:5000",
+      "baseUrl": "/api/auth",
+      "url": "/users",
+      "method": "GET",
+      "body": {},
+      "params": {},
+      "query": {},
+      "clientIp": "::1"
+    },
+    "response": {
+      "headers": {
+        "x-powered-by": "Express",
+        "vary": "Origin"
+      },
+      "statusCode": 200,
+      "body": {
+        "message": "Users found",
+        "users": [
+          {
+            "id": "f4c637fc-76e1-4ff1-8e66-0ee99c3f3532",
+            "name": "Super User",
+            "email": "suser@gmail.com",
+            "password": "*****",
+            "role": "admin",
+            "createdAt": {},
+            "updatedAt": {}
+          },
+          {
+            "id": "ac431bf6-9335-4467-bbfa-358f430da79d",
+            "name": "Normal User",
+            "email": "nuser@gmail.com",
+            "password": "*****",
+            "role": "user",
+            "createdAt": {},
+            "updatedAt": {}
+          },
+          {
+            "id": "789776c0-92ae-45bf-b59b-fdb35dafe951",
+            "name": "Test Bahadur",
+            "email": "test@gmail.com",
+            "password": "*****",
+            "role": "user",
+            "createdAt": {},
+            "updatedAt": {}
+          },
+          {
+            "id": "ca7cdb94-999d-4e77-ae8c-fc8b54d8c45e",
+            "name": "Testtes",
+            "email": "test123@gmail.com",
+            "password": "*****",
+            "role": "user",
+            "createdAt": {},
+            "updatedAt": {}
+          },
+          {
+            "id": "7d83047c-d7f8-4ee8-88e8-31320a7a9fce",
+            "name": "sm shkay",
+            "email": "sam@gmail.com",
+            "password": "*****",
+            "role": "user",
+            "createdAt": {},
+            "updatedAt": {}
+          }
+        ]
+      }
+    }
+  }
+}
+{
+  "level": "info",
+  "timestamp": "Sep-06_24 14:49:53",
+  "message": "User signin successfully",
+  "data": {
+    "request": {
+      "headers": {
+        "content-type": "application/json",
+        "user-agent": "PostmanRuntime/7.37.3",
+        "accept": "*/*",
+        "cache-control": "no-cache",
+        "postman-token": "a5518685-4665-4441-8b9c-b530909c9308",
+        "host": "localhost:5000",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive",
+        "content-length": "62"
+      },
+      "host": "localhost:5000",
+      "baseUrl": "/api/auth",
+      "url": "/signin",
+      "method": "POST",
+      "body": {
+        "email": "suser@gmail.com",
+        "password": "*****"
+      },
+      "params": {},
+      "query": {},
+      "clientIp": "::1"
+    },
+    "response": {
+      "headers": {
+        "x-powered-by": "Express",
+        "vary": "Origin"
+      },
+      "statusCode": 201,
+      "body": {
+        "message": "User signin successfully",
+        "user": "f4c637fc-76e1-4ff1-8e66-0ee99c3f3532",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY0YzYzN2ZjLTc2ZTEtNGZmMS04ZTY2LTBlZTk5YzNmMzUzMiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyNTYxMzQ5MywiZXhwIjoxNzI1Njk5ODkzfQ.QjXUrfvoYTOtTvv1EOu8iN4tz6QcFQf_ARrpo1Nqc-I"
+      }
+    }
+  }
+}
+{
+  "level": "info",
+  "timestamp": "Sep-06_24 14:49:53",
+  "message": "Success",
+  "data": {
+    "request": {
+      "headers": {
+        "content-type": "application/json",
+        "user-agent": "PostmanRuntime/7.37.3",
+        "accept": "*/*",
+        "cache-control": "no-cache",
+        "postman-token": "a5518685-4665-4441-8b9c-b530909c9308",
+        "host": "localhost:5000",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive",
+        "content-length": "62"
+      },
+      "host": "localhost:5000",
+      "baseUrl": "/api/auth",
+      "url": "/signin",
+      "method": "POST",
+      "body": {
+        "email": "suser@gmail.com",
+        "password": "*****"
+      },
+      "params": {},
+      "query": {},
+      "clientIp": "::1"
+    },
+    "response": {
+      "headers": {
+        "x-powered-by": "Express",
+        "vary": "Origin",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "302",
+        "etag": "W/\"12e-W3EPH6DEHlJ0RrjedYNPQzUcAWw\""
+      },
+      "statusCode": 201,
+      "body": {
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY0YzYzN2ZjLTc2ZTEtNGZmMS04ZTY2LTBlZTk5YzNmMzUzMiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyNTYxMzQ5MywiZXhwIjoxNzI1Njk5ODkzfQ.QjXUrfvoYTOtTvv1EOu8iN4tz6QcFQf_ARrpo1Nqc-I",
+        "user": "f4c637fc-76e1-4ff1-8e66-0ee99c3f3532"
+      }
+    }
+  }
+}

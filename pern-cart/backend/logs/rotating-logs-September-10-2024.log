@@ -1,0 +1,52 @@
+{
+  "level": "error",
+  "timestamp": "Sep-10_24 13:50:02",
+  "message": "Not Found",
+  "data": {
+    "request": {
+      "headers": {
+        "host": "localhost:5000",
+        "connection": "keep-alive",
+        "cache-control": "max-age=0",
+        "upgrade-insecure-requests": "1",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8",
+        "sec-gpc": "1",
+        "accept-language": "en-US,en;q=0.6",
+        "sec-fetch-site": "cross-site",
+        "sec-fetch-mode": "navigate",
+        "sec-fetch-user": "?1",
+        "sec-fetch-dest": "document",
+        "sec-ch-ua": "\"Chromium\";v=\"128\", \"Not;A=Brand\";v=\"24\", \"Brave\";v=\"128\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "accept-encoding": "gzip, deflate, br, zstd"
+      },
+      "host": "localhost:5000",
+      "baseUrl": "",
+      "url": "/api/auth/google/callback?code=4%2F0AQlEd8xETLyo5-Orr4eIDQtWToNXyjFUjr_M3lzidqa7URID9J8mnP4H2MAD0Dftw2Y8Og&scope=email+profile+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&authuser=1&prompt=consent",
+      "method": "GET",
+      "body": {},
+      "params": {
+        "0": "/api/auth/google/callback"
+      },
+      "query": {
+        "code": "4/0AQlEd8xETLyo5-Orr4eIDQtWToNXyjFUjr_M3lzidqa7URID9J8mnP4H2MAD0Dftw2Y8Og",
+        "scope": "email profile openid https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email",
+        "authuser": "1",
+        "prompt": "consent"
+      },
+      "clientIp": "::1"
+    },
+    "response": {
+      "headers": {
+        "x-powered-by": "Express",
+        "vary": "Origin"
+      },
+      "statusCode": 404,
+      "body": {
+        "message": "Not Found"
+      }
+    }
+  }
+}
