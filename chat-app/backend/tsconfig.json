@@ -15,7 +15,11 @@
             "alwaysStrict": true,
             "moduleResolution": "NodeNext",
             "allowSyntheticDefaultImports": true,
-            "esModuleInterop": true
+            "esModuleInterop": true,
+            "emitDecoratorMetadata": true,
+            "experimentalDecorators": true,
+            "strictPropertyInitialization": false,
+            "forceConsistentCasingInFileNames": true,
       },
       "ts-node": {
             "esm": true

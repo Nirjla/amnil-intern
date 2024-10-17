@@ -14,6 +14,7 @@ const { DB } = constants
 //             this.pool = new Pool(config)
 
 import { DataSource } from "typeorm";
+import { User } from "../repositories/user.repo";
 
 //       }
 //       async query(text: string, params?: any[]) {
@@ -30,7 +31,7 @@ import { DataSource } from "typeorm";
 // }
 // export const db = new Database()
 
-export const appDataSource = new DataSource({
+export const AppDataSource = new DataSource({
       type: 'postgres',
       host: DB.DB_HOST,
       port: DB.DB_PORT,
@@ -39,6 +40,6 @@ export const appDataSource = new DataSource({
       database: DB.DB_NAME,
       synchronize: true,
       logging: false,
-      entities: [],
+      entities: [User],
 
 })
