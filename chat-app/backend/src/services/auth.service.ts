@@ -11,6 +11,9 @@ export class AuthService {
       constructor() {
             this.userRepository = AppDataSource.getRepository(User)
       }
+      async updateOnlineStatus(userId: string, isOnline: boolean): Promise<void> {
+            await this.userRepository.update(userId, { isOnline })
+      }
       async createUser(createUserDTO: CreateUserDTO): Promise<UserResponseDTO> {
             const { name, email, password } = createUserDTO
             const existingUser = await this.userRepository.findOne({
@@ -23,6 +26,7 @@ export class AuthService {
             const user = this.userRepository.create({ name, email, password: hashPassword })
             await this.userRepository.save(user)
             const userResponseDTO: UserResponseDTO = {
+                  id: user.id,
                   name: user.name,
                   email: user.email,
             }
@@ -42,10 +46,12 @@ export class AuthService {
             }
             const token = generateToken({ userId: user.id })
             const userResponseDTO: UserResponseDTO = {
+                  id: user.id,
                   name: user.name,
                   email: user.email,
                   token: token
             }
+            await this.updateOnlineStatus(user.id, true)
             return userResponseDTO
       }
 
@@ -55,6 +61,7 @@ export class AuthService {
                   throw new Error("No User found")
             }
             const userResponseDTO: UserResponseDTO[] = users.map(user => ({
+                  id: user.id,
                   name: user.name,
                   email: user.email
             }));
@@ -70,6 +77,7 @@ export class AuthService {
                   throw new Error('User not found');
             }
             const userResponseDTO: UserResponseDTO = {
+                  id: user.id,
                   name: user.name,
                   email: user.email,
             }

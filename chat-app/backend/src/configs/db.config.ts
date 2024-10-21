@@ -15,6 +15,8 @@ const { DB } = constants
 
 import { DataSource } from "typeorm";
 import { User } from "../repositories/user.repo";
+import { Message } from "../repositories/message.repo";
+import { ChatRoom } from "../repositories/chat.repo";
 
 //       }
 //       async query(text: string, params?: any[]) {
@@ -40,6 +42,6 @@ export const AppDataSource = new DataSource({
       database: DB.DB_NAME,
       synchronize: true,
       logging: false,
-      entities: [User],
+      entities: [User, ChatRoom, Message],
 
 })
