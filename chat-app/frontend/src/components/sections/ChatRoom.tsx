@@ -81,23 +81,23 @@ export const ChatRoom: React.FC<ChatRoomProps> = ({
 
             if (messageContent && chatServiceRef.current) {
                   try {
-                        const tempMessage: Message = {
-                              id: `temp-${Date.now()}`,
-                              content: messageContent,
-                              sender: {
-                                    id: currentUser.id,
-                                    name: currentUser.name
-                              },
-                              created_at: new Date().toISOString()
-                        };
+                        // const tempMessage: Message = {
+                        //       id: `temp-${Date.now()}`,
+                        //       content: messageContent,
+                        //       sender: {
+                        //             id: currentUser.id,
+                        //             name: currentUser.name
+                        //       },
+                        //       created_at: new Date().toISOString()
+                        // };
 
-                        setMessages(prev => [...prev, tempMessage]);
+                        // setMessages(prev => [...prev, tempMessage]);
                         setNewMessage('');
 
                         await chatServiceRef.current.sendMessage(messageContent, chatRoomId);
                   } catch (error) {
                         console.error('Error sending message:', error);
-                        setMessages(prev => prev.filter(msg => !msg.id.startsWith('temp-')));
+                        // setMessages(prev => prev.filter(msg => !msg.id.startsWith('temp-')));
                         alert('Failed to send message. Please try again.');
                   }
             }

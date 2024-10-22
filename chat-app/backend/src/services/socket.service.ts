@@ -14,7 +14,6 @@ export class SocketService {
       private authService = new AuthService()
       private messageService = new MessageService()
       private userRepository = AppDataSource.getRepository(User)
-      private messageRepository = AppDataSource.getRepository(Message)
       private activeConnections: Map<string, Socket> = new Map()
       constructor(io: Server) {
             this.io = io
@@ -61,14 +60,22 @@ export class SocketService {
 
       //listens on room join and room leave
       private handleRoomJoin(socket: Socket, user: User) {
-            socket.on('room:join', (roomId: string) => {
-                  socket.join(`room:${roomId}`)
-                  //emits to rest of room members
-                  socket.to(`room:${roomId}`).emit('user:joined', {
-                        userId: user.id,
-                        username: user.name
-                  })
+            socket.on('room:join', async (roomId: string) => {
+                  try {
+                        await socket.join(`room:${roomId}`)
+                        console.log(`${user.name} joined ${roomId}`)
+
+                        //emits to rest of room members
+                        this.io.to(`room:${roomId}`).emit('user:joined', {
+                              userId: user.id,
+                              username: user.name
+                        })
+                  } catch (err) {
+                        console.error('Error joining room:', err);
+                        socket.emit('error', { message: 'Failed to join room' });
+                  }
             })
+
             socket.on('room:leave', (roomId: string) => {
                   socket.leave(`room:${roomId}`)
                   socket.to(`room:${roomId}`).emit('user:left', {
@@ -80,25 +87,42 @@ export class SocketService {
       }
       //listens for message sent from the client
       private handleMessaging(socket: Socket, user: User) {
+            // Keep track of connected clients in the room
+            const getConnectedClients = async (roomId: string) => {
+                  const sockets = await this.io.in(`room:${roomId}`).fetchSockets();
+                  return sockets.length;
+            }
             socket.on('message:send', async (data: CreateMessageDTO) => {
                   try {
-                        // Handle user joining the room
+                        const clientCount = await getConnectedClients(data.chatRoomId);
+                        console.log(`Number of clients in room ${data.chatRoomId}:`, clientCount);
+
+                        // Add a listener to confirm message was broadcast
+                        const broadcastCallback = (error: any) => {
+                              if (error) {
+                                    console.error('Broadcast failed:', error);
+                              } else {
+                                    console.log(`Message broadcast to ${clientCount} clients in room ${data.chatRoomId}`);
+                              }
+                        };
+                        //handle user joining the room
                         socket.on('join', (data: { chatRoomId: string }) => {
                               socket.join(`room:${data.chatRoomId}`);
+                              console.log(`${User.name} joined ${data.chatRoomId}`)
                         });
                         console.log("messageData", data)
                         console.log("UserData", user)
                         const message = await this.messageService.createMessage(data, user.id)
                         console.log("messagesaved", message)
                         this.io.to(`room:${data.chatRoomId}`).emit('message:new', {
-                              id: message.id,
+                              id: `${Date.now()}`,
                               content: message.content,
                               sender: {
                                     id: user.id,
-                                    username: user.name
+                                    name: user.name
                               },
-                              createdAt: message.created_at
-                        })
+                              created_at: message.created_at
+                        }, broadcastCallback)
                   } catch (err) {
                         console.log(err)
                         socket.emit('error', { message: 'Failed to send message' })
