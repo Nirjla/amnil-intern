@@ -45,10 +45,8 @@ export class SocketService {
                         return
                   }
                   console.log(`User authenticated: ${user.name}`)
-                  socket.join(`user:${user.id}`)
                   await this.authService.updateOnlineStatus(user.id, true)
                   this.io.emit('user:online', { userId: user.id })
-
                   this.handleRoomJoin(socket, user)
                   this.handleMessaging(socket, user)
                   this.handleDisconnection(socket, user)

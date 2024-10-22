@@ -32,18 +32,18 @@ export const ChatRoom: React.FC<ChatRoomProps> = ({
                   try {
                         chatServiceRef.current = new ChatService(token);
                         const chatService = chatServiceRef.current;
-
                         await chatService.connect();
                         await chatService.joinRoom(chatRoomId).catch(err => { console.error("Failed to join room", err) });
 
                         chatService.onNewMessage((message: Message) => {
                               console.log('Received new message:', message);
-                              setMessages(prevMessages => {
-                                    if (!prevMessages.some(m => m.id === message.id)) {
-                                          return [...prevMessages, message];
-                                    }
-                                    return prevMessages;
-                              });
+                              setMessages((prev) => [...prev, message])
+                              // setMessages(prevMessages => {
+                              //       if (!prevMessages.some(m => m.id === message.id)) {
+                              //             return [...prevMessages, message];
+                              //       }
+                              //       return prevMessages;
+                              // });
                         });
 
                   } catch (err) {
@@ -80,7 +80,6 @@ export const ChatRoom: React.FC<ChatRoomProps> = ({
       const handleSendMessage = async (e: React.FormEvent) => {
             e.preventDefault();
             const messageContent = newMessage.trim();
-
             if (messageContent && chatServiceRef.current) {
                   try {
                         setNewMessage('');

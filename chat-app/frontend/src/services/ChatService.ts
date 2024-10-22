@@ -4,7 +4,7 @@ import { Message } from "../components/interfaces/interfaces";
 export class ChatService {
       private socket: Socket | null = null
       private reconnectAttempts = 0;
-      private readonly MAX_RECONNECT_ATTEMPTS = 15;
+      private readonly MAX_RECONNECT_ATTEMPTS = 100;
       private isConnected = false //status for tracking connection
       constructor(private token: string) {
       }
@@ -28,7 +28,7 @@ export class ChatService {
                   });
                   const connectionTimeout = setTimeout(() => { //handling connection if not use wouldnt know if connection is failed or not
                         reject(new Error('Connection timeout'));
-                  }, 5000);
+                  }, 10000);
 
                   this.socket.on('connect', () => {
                         console.log('Connected to chat server', {
