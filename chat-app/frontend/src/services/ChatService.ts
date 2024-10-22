@@ -5,7 +5,7 @@ export class ChatService {
       private socket: Socket | null = null
       private reconnectAttempts = 0;
       private readonly MAX_RECONNECT_ATTEMPTS = 15;
-      private isConnected = false
+      private isConnected = false //status for tracking connection
       constructor(private token: string) {
       }
       //connects the client to the chat server
@@ -26,9 +26,9 @@ export class ChatService {
                         withCredentials: true,
                         transports: ['websocket']
                   });
-                  const connectionTimeout = setTimeout(() => {
+                  const connectionTimeout = setTimeout(() => { //handling connection if not use wouldnt know if connection is failed or not
                         reject(new Error('Connection timeout'));
-                  }, 3600000);
+                  }, 5000);
 
                   this.socket.on('connect', () => {
                         console.log('Connected to chat server', {
@@ -52,12 +52,7 @@ export class ChatService {
       }
       private setupSocketListeners() {
             if (!this.socket) return
-            //lsitens for successful connection
-            this.socket.on('connection', () => {
-                  console.log('Connected to chat server')
-                  this.isConnected = true
-                  this.reconnectAttempts = 0
-            })
+
             this.socket.on('message:new', (message) => {
                   console.log('receieved new message:', message)
             })
@@ -133,7 +128,8 @@ export class ChatService {
                   timestamp: new Date().toISOString()
             });
             this.socket?.emit('message:send', { content, chatRoomId });
-      }       //event listeners , listens for the events and triggers when anything happens in the rooms
+      }
+      //event listeners , listens for the events and triggers when anything happens in the rooms
       onUserJoin(callback: (data: { userId: string, username: string }) => void) {
             this.socket?.on('user:joined', callback)
       }
@@ -143,18 +139,7 @@ export class ChatService {
       onUserLeave(callback: (data: { userId: string, username: string }) => void) {
             this.socket?.on('user:left', callback)
       }
-      async fetchMessages(chatRoomId: string) {
-            try {
-                  const response = await fetch(`/api/rooms/${chatRoomId}/messages`)
-                  if (!response.ok) {
-                        throw new Error('Failed to fetch messages')
-                  }
-                  const data = await response.json()
-                  return data.data
-            } catch (err) {
-                  throw err
-            }
-      }
+
       // Cleanup
       disconnect() {
             if (this.socket) {

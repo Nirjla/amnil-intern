@@ -14,7 +14,6 @@ export class SocketService {
       private authService = new AuthService()
       private messageService = new MessageService()
       private userRepository = AppDataSource.getRepository(User)
-      private activeConnections: Map<string, Socket> = new Map()
       constructor(io: Server) {
             this.io = io
             this.initializeSocketEvents()
@@ -46,7 +45,6 @@ export class SocketService {
                         return
                   }
                   console.log(`User authenticated: ${user.name}`)
-                  this.activeConnections.set(user.id, socket)// store the connection
                   socket.join(`user:${user.id}`)
                   await this.authService.updateOnlineStatus(user.id, true)
                   this.io.emit('user:online', { userId: user.id })
@@ -97,7 +95,7 @@ export class SocketService {
                         const clientCount = await getConnectedClients(data.chatRoomId);
                         console.log(`Number of clients in room ${data.chatRoomId}:`, clientCount);
 
-                        // Add a listener to confirm message was broadcast
+                        //add listener to confirm message was broadcast
                         const broadcastCallback = (error: any) => {
                               if (error) {
                                     console.error('Broadcast failed:', error);
@@ -115,7 +113,7 @@ export class SocketService {
                         const message = await this.messageService.createMessage(data, user.id)
                         console.log("messagesaved", message)
                         this.io.to(`room:${data.chatRoomId}`).emit('message:new', {
-                              id: `${Date.now()}`,
+                              id: message.id,
                               content: message.content,
                               sender: {
                                     id: user.id,
@@ -132,7 +130,6 @@ export class SocketService {
       private handleDisconnection(socket: Socket, user: User) {
             socket.on('disconnect', async () => {
                   console.log(`User disconnected: ${user.name} `)
-                  this.activeConnections.delete(user.id)
                   await this.authService.updateOnlineStatus(user.id, false)
                   this.io.emit('user:offline', { userId: user.id })
             })

@@ -11,9 +11,8 @@ export const MainChat = () => {
       const [rooms, setRooms] = useState<IChatRoom[]>([]);
       const [selectedRoom, setSelectedRoom] = useState<IChatRoom | null>(null);
       const [isCreateRoomOpen, setIsCreateRoomOpen] = useState(false);
-      const [createRoomData, setCreateRoomData] = useState<{ name: string; description: string } | null>(null);
 
-      // Fetch rooms
+      //fetching rooms
       const {
             data: roomData,
             error: isRoomError,
@@ -21,17 +20,12 @@ export const MainChat = () => {
             refetch: refetchRooms
       } = useApi<IResponse<IChatRoom[]>>('/rooms', 'GET', null, [token]);
 
-      // Create room API call
+      //creating rooms
       const {
-            data: roomCreated,
+            fetchData: createRoom,
             error: roomCreateError,
             loading: isCreatingRoom
-      } = useApi<IResponse<IChatRoom>>(
-            '/rooms',
-            'POST',
-            createRoomData,
-            [createRoomData]
-      );
+      } = useApi<IResponse<IChatRoom>>('/rooms', 'POST');
 
       // Handle rooms data update
       useEffect(() => {
@@ -40,19 +34,20 @@ export const MainChat = () => {
             }
       }, [roomData]);
 
-      // Handle room creation success
-      useEffect(() => {
-            if (roomCreated?.success && roomCreated.data) {
-                  setRooms(prev => [...prev, roomCreated?.data!]);
-                  setSelectedRoom(roomCreated.data);
-                  setIsCreateRoomOpen(false);
-                  setCreateRoomData(null); // Reset create room data
-                  refetchRooms(); // Refresh the room list
-            }
-      }, [roomCreated]);
-
       const handleCreateRoom = async (roomData: { name: string; description: string }) => {
-            setCreateRoomData(roomData); // This will trigger the create room API call
+            try {
+                  // Only make the POST request when we have actual data
+                  const response = await createRoom(roomData);
+
+                  if (response?.success && response.data) {
+                        setRooms(prev => [...prev, response.data!]);
+                        setSelectedRoom(response.data);
+                        setIsCreateRoomOpen(false);
+                        refetchRooms(); // Refresh the room list
+                  }
+            } catch (error) {
+                  console.error('Failed to create room:', error);
+            }
       };
 
       // Loading state
@@ -105,7 +100,6 @@ export const MainChat = () => {
                         isOpen={isCreateRoomOpen}
                         onClose={() => {
                               setIsCreateRoomOpen(false);
-                              setCreateRoomData(null); // Reset create room data when closing
                         }}
                         onCreateRoom={handleCreateRoom}
                         isLoading={isCreatingRoom}

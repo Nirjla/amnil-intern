@@ -19,14 +19,14 @@ export const ChatRoom: React.FC<ChatRoomProps> = ({
       const messagesEndRef = useRef<HTMLDivElement>(null);
       const chatServiceRef = useRef<ChatService | null>(null);
 
-      // Fetch initial messages
+      //fetch initial messages
       const {
             data: fetchedMessages,
             error: fetchError,
             loading: isLoading,
       } = useApi<IResponse<Message[]>>(`/rooms/${chatRoomId}/messages`, 'GET', null, [chatRoomId]);
 
-      // Initialize chat service and handle real-time updates
+      //oinitialize chat service and handle real-time updates
       useEffect(() => {
             const initializeChat = async () => {
                   try {
@@ -34,7 +34,7 @@ export const ChatRoom: React.FC<ChatRoomProps> = ({
                         const chatService = chatServiceRef.current;
 
                         await chatService.connect();
-                        await chatService.joinRoom(chatRoomId);
+                        await chatService.joinRoom(chatRoomId).catch(err => { console.error("Failed to join room", err) });
 
                         chatService.onNewMessage((message: Message) => {
                               console.log('Received new message:', message);
@@ -55,20 +55,22 @@ export const ChatRoom: React.FC<ChatRoomProps> = ({
 
             return () => {
                   if (chatServiceRef.current) {
-                        chatServiceRef.current.leaveRoom(chatRoomId);
+                        chatServiceRef.current.leaveRoom(chatRoomId).catch(err => {
+                              console.error('Failed to leave room', err)
+                        });
                         chatServiceRef.current.disconnect();
                   }
             };
       }, [chatRoomId, token]);
 
-      // Update messages when initially fetched
+      //update messages when initially fetched
       useEffect(() => {
             if (fetchedMessages) {
                   setMessages(fetchedMessages.data || []);
             }
       }, [fetchedMessages]);
 
-      // Scroll to bottom when new messages arrive
+      //scroll to bottom when new messages arrive
       useEffect(() => {
             if (messagesEndRef.current) {
                   messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -81,23 +83,10 @@ export const ChatRoom: React.FC<ChatRoomProps> = ({
 
             if (messageContent && chatServiceRef.current) {
                   try {
-                        // const tempMessage: Message = {
-                        //       id: `temp-${Date.now()}`,
-                        //       content: messageContent,
-                        //       sender: {
-                        //             id: currentUser.id,
-                        //             name: currentUser.name
-                        //       },
-                        //       created_at: new Date().toISOString()
-                        // };
-
-                        // setMessages(prev => [...prev, tempMessage]);
                         setNewMessage('');
-
                         await chatServiceRef.current.sendMessage(messageContent, chatRoomId);
                   } catch (error) {
                         console.error('Error sending message:', error);
-                        // setMessages(prev => prev.filter(msg => !msg.id.startsWith('temp-')));
                         alert('Failed to send message. Please try again.');
                   }
             }

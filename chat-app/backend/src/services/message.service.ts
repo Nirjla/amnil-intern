@@ -49,9 +49,9 @@ export class MessageService {
                                     id: chatRoomId
                               }
                         },
-                        relations: ['sender'], // Include the sender relationship
+                        relations: ['sender'],
                         order: {
-                              created_at: 'ASC' // Order messages by creation time
+                              created_at: 'ASC'
                         }
                   })
                   // console.log("CM", messages)
