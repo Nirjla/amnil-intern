@@ -1,6 +1,5 @@
 // components/RoomList.tsx
-import React from 'react';
-import { formatDistanceToNow } from 'date-fns';
+import React, { useState } from 'react';
 import { ChatRoom, IChatRoom } from '../interfaces/interfaces';
 
 interface RoomListProps {
@@ -8,15 +7,25 @@ interface RoomListProps {
       onRoomSelect: (room: IChatRoom) => void;
       selectedRoomId?: string;
       onCreateRoomClick: () => void;
+      toggleDropdown: () => void
+      handleFilterClick: (filter: string) => void
+      selectedFilter: string
+      isOpen: boolean
 }
 
 export const RoomList: React.FC<RoomListProps> = ({
       rooms,
       onRoomSelect,
       selectedRoomId,
-      onCreateRoomClick
+      onCreateRoomClick,
+      toggleDropdown,
+      handleFilterClick,
+      selectedFilter,
+      isOpen
 }) => {
       console.log("Roooms", rooms)
+
+
       return (
             <div className="w-80 bg-gray-50 h-screen border-r border-gray-200 flex flex-col">
                   <div className="p-4 border-b border-gray-200">
@@ -27,6 +36,61 @@ export const RoomList: React.FC<RoomListProps> = ({
                               Create New Room
                         </button>
                   </div>
+                  {/* Filter Dropdown */}
+                  <div className='relative p-4 border-b border-gray-200'>
+                        <div
+                              className="absolute w-60 md:w-44 top-0  right-0 "
+                              onClick={toggleDropdown}
+                        >
+                              <ul className="block w-60 md:w-44 appearance-none  border-gray-400 hover:border-gray-400 rounded-md leading-tight focus:outline-none focus:shadow-outline">
+                                    <li className="pl-3 md:pl-6 py-2.5">{selectedFilter}</li>
+                              </ul>
+                              <div className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 px-6">
+                                    <svg
+                                          width="12"
+                                          height="12"
+                                          viewBox="0 0 12 12"
+                                          fill="none"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                          <path
+                                                d="M9.75 4.5L6 8.25L2.25 4.5"
+                                                stroke="black"
+                                                stroke-width="1.5"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                          />
+                                    </svg>
+                              </div>
+                        </div>
+                  </div>
+                  {isOpen && (
+                        <div className="absolute top-[6.5rem] left-[9rem] ">
+                              <ul className="block w-60 md:w-44 appearance-none bg-white border border-gray-400 hover:border-gray-400 rounded-md shadow-lg leading-tight focus:outline-none focus:shadow-outline">
+                                    <li
+                                          className="pl-3 md:pl-6 py-2 hover:bg-gray-100"
+                                          onClick={() => handleFilterClick("All")}
+                                    >
+                                          All
+                                    </li>
+                                    <li
+                                          className="pl-3 md:pl-6 py-2 hover:bg-gray-100"
+                                          onClick={() => handleFilterClick("Private")}
+                                    >
+                                          Private
+                                    </li>
+                                    <li
+                                          className="pl-3 md:pl-6 py-2 hover:bg-gray-100"
+                                          onClick={() => handleFilterClick("Public")}
+                                    >
+                                          Public
+                                    </li>
+
+                              </ul>
+
+                        </div>
+                  )}
+
 
                   <div className="overflow-y-auto flex-1">
                         {!rooms || rooms.length === 0 ? (

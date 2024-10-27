@@ -5,7 +5,6 @@ import { verify } from "jsonwebtoken";
 import constants from "../constants";
 import { AuthService } from "./auth.service";
 import { CreateMessageDTO } from "../dtos/user.dto";
-import { Message } from "../repositories/message.repo";
 import { MessageService } from "./message.service";
 const { JWT_SECRET } = constants
 export class SocketService {
@@ -58,6 +57,14 @@ export class SocketService {
       private handleRoomJoin(socket: Socket, user: User) {
             socket.on('room:join', async (roomId: string) => {
                   try {
+                        // Keep track of connected clients in the room
+                        const getConnectedClients = async (roomId: string) => {
+                              const sockets = await this.io.in(`room:${roomId}`).fetchSockets();
+                              return sockets.length;
+                        }
+                        const clientCount = await getConnectedClients(roomId);
+                        console.log(`Number of clients in room ${roomId}:`, clientCount);
+
                         await socket.join(`room:${roomId}`)
                         console.log(`${user.name} joined ${roomId}`)
 

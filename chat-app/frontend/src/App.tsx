@@ -4,6 +4,7 @@ import Login from "./components/pages/Login"
 import { AuthContextProvider } from "./context/AuthContext"
 import ProtectedRoute from "./routes/ProtectedRoute"
 import { MainChat } from "./components/pages/MainChat"
+import Dashboard from "./components/pages/Dashboard"
 export default function App() {
       return (
             <>
@@ -14,6 +15,7 @@ export default function App() {
                               <Route element={<ProtectedRoute />}>
                                     {/* <Route path="/dashboard" element={<Dashboard />} /> */}
                                     <Route path="/main-chat" element={<MainChat />} />
+                                    <Route path="/dashboard" element={<Dashboard />} />
                               </Route>
 
                         </Routes>

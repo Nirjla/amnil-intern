@@ -28,7 +28,7 @@ export class ChatService {
                   });
                   const connectionTimeout = setTimeout(() => { //handling connection if not use wouldnt know if connection is failed or not
                         reject(new Error('Connection timeout'));
-                  }, 10000);
+                  }, 30000);
 
                   this.socket.on('connect', () => {
                         console.log('Connected to chat server', {
@@ -116,7 +116,7 @@ export class ChatService {
             if (!this.isConnected) {
                   console.log('socket not connected, attempting to connect...');
                   try {
-                        await this.connect();
+                        await this.connect()
                   } catch (error) {
                         console.error('Failed to connect:', error);
                         throw new Error('Cannot send message: Socket connection failed');

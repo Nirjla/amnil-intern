@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ChatService } from '../../services/ChatService';
 import useApi from '../../hooks/useApi';
-import { IResponse, IUserResponse, Message } from '../interfaces/interfaces';
+import { IChatRoom, IResponse, IUserResponse, Message } from '../interfaces/interfaces';
+import { Settings } from './Settings';
 
 interface ChatRoomProps {
       chatRoomId: string;
@@ -16,51 +17,50 @@ export const ChatRoom: React.FC<ChatRoomProps> = ({
 }) => {
       const [messages, setMessages] = useState<Message[]>([]);
       const [newMessage, setNewMessage] = useState('');
+      const [isJoin, setIsJoin] = useState(false)
       const messagesEndRef = useRef<HTMLDivElement>(null);
       const chatServiceRef = useRef<ChatService | null>(null);
-
+      const [roomData, setRoomData] = useState<IChatRoom | null>(null)
+      const [isSettingsOpen, setIsSettingsOpen] = useState(false)
       //fetch initial messages
       const {
             data: fetchedMessages,
             error: fetchError,
             loading: isLoading,
       } = useApi<IResponse<Message[]>>(`/rooms/${chatRoomId}/messages`, 'GET', null, [chatRoomId]);
+      const { data: fetchRoomData, error: roomError, loading: isRoomLoading } = useApi<IResponse<IChatRoom>>(`/rooms/${chatRoomId}`, 'GET', null)
 
-      //oinitialize chat service and handle real-time updates
+      //oinitialize chat service 
       useEffect(() => {
             const initializeChat = async () => {
-                  try {
-                        chatServiceRef.current = new ChatService(token);
-                        const chatService = chatServiceRef.current;
-                        await chatService.connect();
-                        await chatService.joinRoom(chatRoomId).catch(err => { console.error("Failed to join room", err) });
+                  if (chatRoomId && token) {
+                        try {
+                              if (!chatServiceRef.current) {
+                                    chatServiceRef.current = new ChatService(token!);
+                                    await chatServiceRef.current.connect();
+                              }
+                              try {
+                                    await chatServiceRef.current.joinRoom(chatRoomId)
+                                    setIsJoin(true)
+                                    chatServiceRef.current.onNewMessage((message: Message) => {
+                                          console.log('Received new message:', message);
+                                          setMessages((prev) => [...prev, message])
+                                    });
 
-                        chatService.onNewMessage((message: Message) => {
-                              console.log('Received new message:', message);
-                              setMessages((prev) => [...prev, message])
-                              // setMessages(prevMessages => {
-                              //       if (!prevMessages.some(m => m.id === message.id)) {
-                              //             return [...prevMessages, message];
-                              //       }
-                              //       return prevMessages;
-                              // });
-                        });
+                              } catch (err) {
+                                    console.error("Unable to the join", err)
+                                    setIsJoin(false)
+                              }
+                        }
+                        catch (err) {
+                              console.error('Error initializing chat:', err);
 
-                  } catch (err) {
-                        console.error('Error initializing chat:', err);
+                        }
                   }
             };
 
             initializeChat();
 
-            return () => {
-                  if (chatServiceRef.current) {
-                        chatServiceRef.current.leaveRoom(chatRoomId).catch(err => {
-                              console.error('Failed to leave room', err)
-                        });
-                        chatServiceRef.current.disconnect();
-                  }
-            };
       }, [chatRoomId, token]);
 
       //update messages when initially fetched
@@ -68,7 +68,10 @@ export const ChatRoom: React.FC<ChatRoomProps> = ({
             if (fetchedMessages) {
                   setMessages(fetchedMessages.data || []);
             }
-      }, [fetchedMessages]);
+            if (fetchRoomData) {
+                  setRoomData(fetchRoomData?.data || null)
+            }
+      }, [fetchedMessages, fetchRoomData]);
 
       //scroll to bottom when new messages arrive
       useEffect(() => {
@@ -80,6 +83,11 @@ export const ChatRoom: React.FC<ChatRoomProps> = ({
       const handleSendMessage = async (e: React.FormEvent) => {
             e.preventDefault();
             const messageContent = newMessage.trim();
+            console.log("JoinorNot", isJoin)
+            if (!isJoin) {
+                  alert("Please wait until you are connected")
+                  return
+            }
             if (messageContent && chatServiceRef.current) {
                   try {
                         setNewMessage('');
@@ -91,7 +99,7 @@ export const ChatRoom: React.FC<ChatRoomProps> = ({
             }
       };
 
-      if (isLoading) {
+      if (isLoading || isRoomLoading) {
             return (
                   <div className="flex items-center justify-center h-screen">
                         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
@@ -99,20 +107,21 @@ export const ChatRoom: React.FC<ChatRoomProps> = ({
             );
       }
 
-      if (fetchError) {
+      if (fetchError || roomError) {
             return (
                   <div className="flex items-center justify-center h-screen">
-                        <div className="text-red-500">Failed to load messages. Please try again later.</div>
+                        <div className="text-red-500">Failed to load . Please try again later.</div>
                   </div>
             );
       }
 
       return (
             <div className="flex flex-col h-screen">
-                  <div className="bg-white border-b border-gray-200 px-6 py-4">
+                  <div className="flex justify-between bg-white border-b border-gray-200 px-6 py-4">
                         <h2 className="text-xl font-semibold text-gray-800">
                               Chat Room
                         </h2>
+                        <Settings isPrivate={roomData?.isPrivate} setIsOpen={() => setIsSettingsOpen(!isSettingsOpen)} isOpen={isSettingsOpen} chatRoomId={chatRoomId} />
                   </div>
 
                   <div className="flex-1 overflow-y-auto p-6 space-y-4 bg-gray-50">

@@ -17,6 +17,7 @@ export interface IResponse<T> {
 }
 
 export interface IGetUsers {
+      id: string
       name: string,
       email: string
 }
@@ -53,9 +54,11 @@ export interface IChatRoom {
       name: string;
       description: string
       created_at: string
+      isPrivate?: boolean
       creator: {
             id: string
             name: string
             email: string
       }
+      participants: IGetUsers[]
 }

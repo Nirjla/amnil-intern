@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 interface CreateRoomProps {
       isOpen: boolean;
       onClose: () => void;
-      onCreateRoom: (data: { name: string; description: string }) => void;
+      onCreateRoom: (data: { name: string; description: string, isPrivate: boolean }) => void;
       isLoading?: boolean;
       error?: string;
 }
@@ -16,12 +16,12 @@ export const CreateRoom: React.FC<CreateRoomProps> = ({
 }) => {
       const [name, setName] = useState('');
       const [description, setDescription] = useState('');
-
+      const [isPrivate, setIsPrivate] = useState(false)
       if (!isOpen) return null;
 
       const handleSubmit = (e: React.FormEvent) => {
             e.preventDefault();
-            onCreateRoom({ name, description });
+            onCreateRoom({ name, description, isPrivate });
       };
 
       return (
@@ -63,6 +63,36 @@ export const CreateRoom: React.FC<CreateRoomProps> = ({
                                     />
                               </div>
 
+                              <div className="mb-4">
+                                    <label className="block text-sm font-medium mb-1">
+                                          Do you want to make group private?
+                                    </label>
+                                    <div className="flex items-center mb-4">
+                                          <input
+                                                type="radio"
+                                                name="privacy"
+                                                checked={isPrivate === true}
+                                                onChange={() => setIsPrivate(true)}
+                                                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                                          />
+                                          <label className="ms-2 text-sm font-medium text-gray-400 dark:text-gray-500">
+                                                Yes
+                                          </label>
+                                    </div>
+                                    <div className="flex items-center">
+                                          <input
+                                                type="radio"
+                                                name="privacy"
+                                                checked={isPrivate === false}
+                                                onChange={() => setIsPrivate(false)}
+                                                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                                          />
+                                          <label className="ms-2 text-sm font-medium text-gray-400 dark:text-gray-500">
+                                                No
+                                          </label>
+                                    </div>
+                              </div>
+
                               <div className="flex justify-end space-x-2">
                                     <button
                                           type="button"
@@ -81,7 +111,7 @@ export const CreateRoom: React.FC<CreateRoomProps> = ({
                                     </button>
                               </div>
                         </form>
-                  </div>
-            </div>
+                  </div >
+            </div >
       );
 };

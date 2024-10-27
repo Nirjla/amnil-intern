@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import { AuthService } from "../services/auth.service";
 import { sendErrorResponse, sendSuccessResponse } from "../utils/response.utils";
 import { CreateUserDTO, UserResponseDTO } from "../dtos/user.dto";
+import { AuthRequest } from "../interfaces/interfaces";
 
 
 export class UserController {
@@ -68,4 +69,22 @@ export class UserController {
                   }
             }
       }
+
+
+      getUsersNotCreator = async (req: AuthRequest, res: Response) => {
+            try {
+                  const creatorId = req.user?.id!
+                  const participants = await this.authService.getUsersNotCreator(creatorId);
+                  sendSuccessResponse(res, "Participants lists", participants, 200)
+            } catch (err) {
+                  if (err instanceof Error) {
+                        sendErrorResponse(res, err.message, 400)
+                  }
+                  else {
+
+                        sendErrorResponse(res, "An unknown error occurred", 500)
+                  }
+            }
+      }
+
 }

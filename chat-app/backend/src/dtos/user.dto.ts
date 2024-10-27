@@ -22,9 +22,16 @@ export class LoginUserDTO {
 export class CreateChatRoomDTO {
       name: string;
       description?: string;
+      isPrivate?: boolean
 }
 
 export class CreateMessageDTO {
       content: string;
       chatRoomId: string;
+}
+
+export class addParticipant {
+      chatId: string
+      userId: string
+      creatorId: string
 }

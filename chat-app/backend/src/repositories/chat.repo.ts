@@ -13,9 +13,26 @@ export class ChatRoom extends BaseEntity {
       @Column({ nullable: true })
       description: string
 
+      @Column({ default: false })
+      isPrivate: boolean;
+
       @ManyToOne(() => User, user => user.createdRooms)
       @JoinColumn()
       creator: User
+
+      @ManyToMany(() => User)
+      @JoinTable({
+            name: 'chat_participants',
+            joinColumn: {
+                  name: 'chat_id',
+                  referencedColumnName: 'id'
+            },
+            inverseJoinColumn: {
+                  name: 'user_id',
+                  referencedColumnName: 'id'
+            }
+      })
+      participants: User[]
 
       @OneToMany(() => Message, message => message.chatRoom)
       messages: Message[]

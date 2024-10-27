@@ -1,4 +1,4 @@
-import { Repository } from "typeorm";
+import { Not, Repository } from "typeorm";
 import { CreateUserDTO, LoginUserDTO, UserResponseDTO } from "../dtos/user.dto";
 import { comparePassword, encryptPassword, generateToken } from "../helpers/helper";
 import { User } from "../repositories/user.repo";
@@ -85,4 +85,19 @@ export class AuthService {
 
 
       }
+
+      async getUsersNotCreator(creatorId: string) {
+            try {
+                  const participants = await this.userRepository.find({
+                        where: {
+                              id: Not(creatorId)
+                        }
+                  })
+                  return participants
+            } catch (err) {
+                  console.error(err)
+                  throw new Error("Creator not found")
+            }
+      }
+
 }

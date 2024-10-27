@@ -11,14 +11,19 @@ export const MainChat = () => {
       const [rooms, setRooms] = useState<IChatRoom[]>([]);
       const [selectedRoom, setSelectedRoom] = useState<IChatRoom | null>(null);
       const [isCreateRoomOpen, setIsCreateRoomOpen] = useState(false);
-
+      const [isFilterOpen, setIsFilterOpen] = useState(false);
+      const [selectedFilter, setSelectedFilter] = useState("Filter");
+      const handleFilterClick = (filter: string) => {
+            setSelectedFilter(filter);
+            setIsFilterOpen(false);
+      };
       //fetching rooms
       const {
             data: roomData,
             error: isRoomError,
             loading: isRoomLoading,
             refetch: refetchRooms
-      } = useApi<IResponse<IChatRoom[]>>('/rooms', 'GET', null, [token]);
+      } = useApi<IResponse<IChatRoom[]>>(`/rooms?filter=${selectedFilter}`, 'GET', null, [token]);
 
       //creating rooms
       const {
@@ -36,7 +41,7 @@ export const MainChat = () => {
 
       const handleCreateRoom = async (roomData: { name: string; description: string }) => {
             try {
-                  // Only make the POST request when we have actual data
+                  //only make the POST request when we have actual data
                   const response = await createRoom(roomData);
 
                   if (response?.success && response.data) {
@@ -50,7 +55,7 @@ export const MainChat = () => {
             }
       };
 
-      // Loading state
+      //loading state
       if (isRoomLoading) {
             return (
                   <div className="flex items-center justify-center h-screen">
@@ -59,7 +64,7 @@ export const MainChat = () => {
             );
       }
 
-      // Error state
+      //error state
       if (isRoomError || !roomData?.success) {
             return (
                   <div className="flex items-center justify-center h-screen">
@@ -78,6 +83,10 @@ export const MainChat = () => {
                         selectedRoomId={selectedRoom?.id}
                         onRoomSelect={setSelectedRoom}
                         onCreateRoomClick={() => setIsCreateRoomOpen(true)}
+                        toggleDropdown={() => setIsFilterOpen(!isFilterOpen)}
+                        handleFilterClick={handleFilterClick}
+                        selectedFilter={selectedFilter}
+                        isOpen={isFilterOpen}
                   />
 
                   {/* Chat Area */}

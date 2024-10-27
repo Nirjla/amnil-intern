@@ -23,7 +23,7 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
                   setUser(data);
                   setToken(data?.token);
                   setLocalStorage('user', { ...data, expiration: Date.now() + 60 * 60 * 60 * 1000 })
-                  navigate('/dashboard')
+                  navigate('/main-chat')
                   return
             }
       }
